@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+ 
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      height: 100vh;
+      background: linear-gradient(405deg, #091f56 0%, #000000 100%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .login-box {
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(15px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 20px;
+      padding: 40px 30px;
+      width: 360px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      animation: slideFade 0.6s ease-in-out;
+    }
+
+    .login-box h2 {
+      text-align: center;
+      color: #fff;
+      font-weight: 600;
+      margin-bottom: 25px;
+    }
+
+    .login-box input {
+      width: 100%;
+      padding: 14px 15px;
+      margin: 12px 0;
+      border: none;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.238);
+      color: #fff;
+      font-size: 15px;
+      outline: none;
+      transition: all 0.3s ease;
+    }
+
+    .login-box input::placeholder {
+      color: #eee;
+    }
+
+    .login-box input:focus {
+      background: rgba(255, 255, 255, 0.5);
+      color: #000;
+    }
+
+    .login-box button {
+      width: 100%;
+      padding: 14px;
+      background: #6a11cb;
+      background: linear-gradient(to right, #2575fc, #112acb);
+      border: none;
+      border-radius: 12px;
+      color: #fff;
+      font-size: 16px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      margin-top: 10px;
+    }
+
+    #btn::after {
+  content: "\f090"; /* Unicode for fa-right-to-bracket */
+  font-family: "Font Awesome 6 Free";
+  font-weight: 800;
+  margin-left: 8px;
+}
+
+    .login-box button:hover {
+      background: linear-gradient(to right, #6a11cb, #2575fc);
+    }
+
+    /* Popup */
+    .popup {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .popup.active {
+      display: flex;
+    }
+
+    .popup-content {
+      background: white;
+      padding: 25px;
+      border-radius: 15px;
+      text-align: center;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+      max-width: 300px;
+      animation: popIn 0.3s ease;
+    }
+
+    .popup-content h3 {
+      color: #e74c3c;
+      margin-bottom: 15px;
+    }
+
+    .popup-content button {
+      background-color: #e74c3c;
+      border: none;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    .popup-content button:hover {
+      background-color: #c0392b;
+    }
+
+    @keyframes slideFade {
+      from {
+        opacity: 0;
+        transform: translateY(-30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes popIn {
+      from {
+        opacity: 0;
+        transform: scale(0.9);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="login-box">
+    <h2>Welcome Back</h2>
+    <input type="text" id="username" placeholder="Username" required />
+    <input type="password" id="password" placeholder="Password" required />
+    <button id="btn" onclick="login()">Login</button>
+  </div>
+
+  <div class="popup" id="popup">
+    <div class="popup-content">
+      <h3>Invalid username or password</h3>
+      <button onclick="closePopup()">Close</button>
+    </div>
+  </div>
+
+  <script>
+    function login() {
+      const username = document.getElementById("username").value.trim();
+      const password = document.getElementById("password").value.trim();
+      const validUsername = "ajay";
+      const validPassword = "1234";
+
+      if (username === validUsername && password === validPassword) {
+        window.location.href = "index.html";
+      } else {
+        showPopup();
+      }
+    }
+
+    function showPopup() {
+      document.getElementById("popup").classList.add("active");
+    }
+
+    function closePopup() {
+      document.getElementById("popup").classList.remove("active");
+    }
+  </script>
+
+</body>
+</html>

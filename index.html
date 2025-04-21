@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Employee Data Form</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+  <div class="navbar">
+    <img src="allyted-logo.png" alt="Logo" onerror="this.src='https://via.placeholder.com/100x50?text=Logo'">
+    <h1>Employee Data Collection</h1>
+  </div>
+
+  <div class="form-container">
+    <form id="employeeForm" novalidate>
+      <h3>Basic Details</h3>
+      <div class="form-row">
+        <div class="form-group">
+          <label class="required-label">Date of Joining</label>
+          <i class="fa-solid fa-calendar-days"></i>
+          <input type="date" name="date_of_joining" required>
+          <span class="error" id="date_of_joining-error">Please enter Date of Joining</span>
+        </div>
+        <div class="form-group">
+          <label>Employee ID</label>
+          <i class="fa-solid fa-id-badge"></i>
+          <input type="text" name="employee_id">
+          <span class="error" id="employee_id-error"></span>
+        </div>
+        <div class="form-group">
+          <label class="required-label">First Name</label>
+          <i class="fa-solid fa-user"></i>
+          <input type="text" name="first_name" required>
+          <span class="error" id="first_name-error">Please enter First Name</span>
+        </div>
+        <div class="form-group">
+          <label class="required-label">Last Name</label>
+          <i class="fa-solid fa-user"></i>
+          <input type="text" name="last_name" required>
+          <span class="error" id="last_name-error">Please enter Last Name</span>
+        </div>
+        <div class="form-group">
+          <label class="required-label">Email ID</label>
+          <i class="fa-solid fa-envelope"></i>
+          <input type="email" name="email_id" required>
+          <span class="error" id="email_id-error">Please enter a valid Email ID</span>
+        </div>
+        <div class="form-group">
+          <label class="required-label">Phone Number</label>
+          <i class="fa-solid fa-phone"></i>
+          <input type="tel" name="phone_number" required>
+          <span class="error" id="phone_number-error">Please enter a valid Phone Number (10 digits)</span>
+        </div>
+      </div>
+
+      <h3>Location Details</h3>
+      <div class="form-row">
+        <div class="form-group">
+          <label class="required-label">City</label>
+          <i class="fa-solid fa-city"></i>
+          <input type="text" name="city" required>
+          <span class="error" id="city-error">Please enter City</span>
+        </div>
+        <div class="form-group">
+          <label class="required-label">Staying Location</label>
+          <i class="fa-solid fa-location-dot"></i>
+          <input type="text" name="staying_location" required>
+          <span class="error" id="staying_location-error">Please enter Staying Location</span>
+        </div>
+        <div class="form-group">
+          <label class="required-label">Reporting Office</label>
+          <i class="fa-solid fa-building"></i>
+          <select name="reporting_office" required>
+            <option value="">Select Office</option>
+            <option value="Hyderabad">Hyderabad</option>
+            <option value="Mahabubnagar">Mahabubnagar</option>
+          </select>
+          <span class="error" id="reporting_office-error">Please select Reporting Office</span>
+        </div>
+      </div>
+
+      <h3>Job Information</h3>
+      <div class="form-row">
+        <div class="form-group">
+          <label class="required-label">Department</label>
+          <i class="fa-solid fa-diagram-project"></i>
+          <select name="department" id="department" required>
+            <option value="">Select Department</option>
+          </select>
+          <span class="error" id="department-error">Please select Department</span>
+        </div>
+        <div class="form-group">
+          <label class="required-label">Role</label>
+          <i class="fa-solid fa-diagram-project"></i>
+          <select name="role" id="role" required>
+            <option value="">Select Role</option>
+          </select>
+          <span class="error" id="role-error">Please select Role</span>
+        </div>
+        <div class="form-group">
+          <label class="required-label">Experience</label>
+          <i class="fa-solid fa-hourglass-half"></i>
+          <input type="text" name="experience" required>
+          <span class="error" id="experience-error">Please enter Experience</span>
+        </div>
+        <div class="form-group">
+          <label class="required-label">Bond</label>
+          <i class="fa-solid fa-file-contract"></i>
+          <input type="text" name="bond" required>
+          <span class="error" id="bond-error">Please enter Bond</span>
+        </div>
+      </div>
+
+      <h3>Education Details</h3>
+      <div class="form-row">
+        <div class="combined-education">
+          <label class="required-label">Highest Degree/Specialization/Year of Pass</label>
+          <div class="education-fields">
+            <input type="text" class="education-input" name="degree" placeholder="Highest Degree" required>
+            <span class="separator">|</span>
+            <input type="text" class="education-input" name="specialization" placeholder="Specialization" required>
+            <span class="separator">|</span>
+            <input type="text" class="education-input" name="pass_year" placeholder="Year of Pass" required>
+          </div>
+          <span class="error" id="degree-error">Please enter Highest Degree</span>
+          <span class="error" id="specialization-error">Please enter Specialization</span>
+          <span class="error" id="pass_year-error">Please enter Year of Pass</span>
+        </div>
+      </div>
+
+      <h3>Asset Info</h3>
+      <div class="form-row">
+        <div class="form-group">
+          <label class="required-label">Touch</label>
+          <i class="fa-solid fa-hand-pointer"></i>
+          <select name="touch" id="touch" required>
+            <option value="">Select</option>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+          </select>
+          <span class="error" id="touch-error">Please select Touch</span>
+        </div>
+        <div class="form-group">
+          <label class="required-label">Brand</label>
+          <i class="fas fa-tag"></i>
+          <select name="brand" id="brand" required>
+            <option value="">Select Brand</option>
+          </select>
+          <span class="error" id="brand-error">Please select Brand</span>
+        </div>
+        <div class="form-group">
+          <label class="required-label">Asset ID</label>
+          <i class="fas fa-barcode"></i>
+          <select name="asset_id" id="asset_id" required>
+            <option value="">Select Asset</option>
+          </select>
+          <span class="error" id="asset_id-error">Please select Asset ID</span>
+        </div>
+      </div>
+
+      <h3>Send Mail to</h3>
+      <div class="form-row">
+        <div class="multiselect-container">
+          <label for="multiselectBox" class="required-label">Notify to</label>
+          <div class="multiselect-box" id="multiselectBox" tabindex="0" role="combobox" aria-expanded="false" aria-controls="multiselectDropdown">
+            <span class="multiselect-placeholder" id="placeholder">Select...</span>
+          </div>
+          <div class="multiselect-dropdown" id="multiselectDropdown" role="listbox">
+            <div class="multiselect-option" data-value="Every-One" role="option" tabindex="0">Every-One</div>
+            <div class="multiselect-option" data-value="Not Required" role="option" tabindex="0">Not Required</div>
+            <div class="multiselect-option" data-value="Hyderabad" role="option" tabindex="0">Hyderabad</div>
+            <div class="multiselect-option" data-value="Mahabubnagar" role="option" tabindex="0">Mahabubnagar</div>
+            <div class="multiselect-option" data-value="Staffing" role="option" tabindex="0">Staffing</div>
+            <div class="multiselect-option" data-value="Marketing" role="option" tabindex="0">Marketing</div>
+            <div class="multiselect-option" data-value="Business Development" role="option" tabindex="0">Business Development</div>
+            <div class="multiselect-option" data-value="SAP Development" role="option" tabindex="0">SAP Development</div>
+            <div class="multiselect-option" data-value="Training" role="option" tabindex="0">Training</div>
+            <div class="multiselect-option" data-value="Finance" role="option" tabindex="0">Finance</div>
+            <div class="multiselect-option" data-value="Operations" role="option" tabindex="0">Operations</div>
+          </div>
+          <input type="hidden" name="tags" id="tagsInput" required>
+          <span class="error" id="tags-error">Please select at least one Notify to option</span>
+        </div>
+      </div>
+
+      <button type="submit" id="submitBtn">Submit</button>
+    </form>
+
+    <p id="msg"></p>
+  </div>
+
+  <!-- Success Popup -->
+  <div class="popup" id="success-popup">
+    <div class="popup-content">
+      <h3>Form submitted successfully</h3>
+      <button onclick="closeSuccessPopup()">OK</button>
+    </div>
+  </div>
+
+
+  <script src="script.js"></script>
+</body>
+</html>
